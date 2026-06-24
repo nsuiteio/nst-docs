@@ -1,7 +1,7 @@
-# 2.初期設定まとめ
+# 導入・初期設定
 
 {% hint style="info" %}
-下記はN Suiteの利用開始にあたって必要な初期設定や導入手順に関するドキュメントです。順番は厳密には決まってないですが、1 ➡ 5の流れで初期設定を進めていくとよりスムーズに進みます。
+N Suiteの利用開始にあたって必要な初期設定や導入手順に関するドキュメントです。推奨順に沿って進めると、組織設定、鍵管理、ワークフロー設定までを整理して進められます。
 {% endhint %}
 
 {% hint style="info" %}
@@ -16,5 +16,4 @@
 4. [N Walletのインストール（AWS KMS）](../3.-shu-ming-jian-guan-li/aws-kms/n-walletnoinsutru.md) / [N Walletのインストール（Ledger）](../3.-shu-ming-jian-guan-li/ledger/n-walletnoinsutru.md)
 5. [チームへの保有アドレス登録](ke/chmurru/chmu/chmuhenoadoresu.md)
 6. [ワークフローのプロセス設定](ke/wkufur/wkufurnopurosesu.md)
-
 

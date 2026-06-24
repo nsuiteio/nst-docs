@@ -41,7 +41,7 @@ description: N Suiteに登録しているアドレスが保有しているNFTを
 ③ N Boardワークフローの承認プロセスを通して署名実行する。
 
 1. 承認者がN Board上で承認
-2. 実行者がN board上で実行
+2. 実行者がN Board上で実行
 
 {% hint style="warning" %}
 送付先のアドレスがN Suiteに登録している別のアドレス（保有アドレス）の場合でも手順は同じです。

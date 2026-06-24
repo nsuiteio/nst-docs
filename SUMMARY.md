@@ -1,13 +1,16 @@
 # Table of contents
 
-## アップデート一覧
+## はじめに
 
-* [1.はじめに・初期設定](README.md)
+* [N Suiteドキュメント](README.md)
   * [初回ログイン手順](appudto/1hajimeni/roguin.md)
   * [動作環境](appudto/1hajimeni/dong-zuo-huan-jing.md)
   * [対応ネットワーク](appudto/1hajimeni/nettowku.md)
-* [2.初期設定まとめ](appudto/2matome/README.md)
-  * [管理者向け手順](appudto/2matome/ke/README.md)
+
+## 導入・初期設定
+
+* [導入・初期設定](appudto/2matome/README.md)
+  * [管理者向け設定](appudto/2matome/ke/README.md)
     * [組織/チーム/ロール](appudto/2matome/ke/chmurru/README.md)
       * [組織](appudto/2matome/ke/chmurru/zu-zhi/README.md)
         * [組織へのメンバー追加](appudto/2matome/ke/chmurru/zu-zhi/henomenb.md)
@@ -23,7 +26,10 @@
       * [ワークフローのプロセス設定](appudto/2matome/ke/wkufur/wkufurnopurosesu.md)
       * [プロセスに 「適用条件」 を設定する](appudto/2matome/ke/wkufur/purosesuni-wosuru.md)
     * [二要素認証(2FA)](appudto/2matome/ke/er-yao-su-ren-zheng-2fa.md)
-* [3.署名・鍵管理](appudto/3.-shu-ming-jian-guan-li/README.md)
+
+## 署名・鍵管理
+
+* [署名・鍵管理](appudto/3.-shu-ming-jian-guan-li/README.md)
   * [MPC](appudto/3.-shu-ming-jian-guan-li/mpc/README.md)
     * [MPCの概要](appudto/3.-shu-ming-jian-guan-li/mpc/mpcno.md)
     * [MPCの有効化](appudto/3.-shu-ming-jian-guan-li/mpc/mpcno-1.md)
@@ -51,18 +57,27 @@
     * [アドレスのN Walletへの追加方法](appudto/3.-shu-ming-jian-guan-li/ledger/adoresunon-walletheno.md)
     * [アドレスとN Cloud Keyへの名前登録](appudto/3.-shu-ming-jian-guan-li/ledger/adoresuton-cloud-keyheno.md)
     * [N Walletの手動アップデート](appudto/3.-shu-ming-jian-guan-li/ledger/n-walletnoappudto.md)
-* [4.N boardの使い方](appudto/4n-boardnoi/README.md)
+
+## N Boardの基本操作
+
+* [N Boardの使い方](appudto/4n-boardnoi/README.md)
   * [申請のコピー](appudto/4n-boardnoi/nokop.md)
   * [任意のトークン追加](appudto/4n-boardnoi/notkun.md)
   * [外部サービスからの申請作成](appudto/4n-boardnoi/sbisukarano.md)
   * [カスタムネットワークの追加](appudto/4n-boardnoi/kasutamunettowkuno.md)
-* [5.NFT関連機能](appudto/5.nft-guan-lian-ji-neng/README.md)
+
+## NFT関連機能
+
+* [NFT関連機能](appudto/5.nft-guan-lian-ji-neng/README.md)
   * [NFTの送付の方法](appudto/5.nft-guan-lian-ji-neng/nftnono.md)
   * [NFT Mint 専用フォーム](appudto/5.nft-guan-lian-ji-neng/nft-mint-fmu.md)
   * [NFT Mint 専用フォーム - 大量同時Mint](appudto/5.nft-guan-lian-ji-neng/nft-mint-fmu-mint.md)
   * [NFT一括Mint - 1Tx辺りの上限設定](appudto/5.nft-guan-lian-ji-neng/nftmint-1txrino.md)
-* [6.よくある設定・応用機能](appudto/6yokuaru/README.md)
-  * [各種ネットワーク追加方法](appudto/6yokuaru/nettowku/README.md)
+
+## 応用機能・各種設定
+
+* [応用機能・各種設定](appudto/6yokuaru/README.md)
+  * [ネットワーク設定](appudto/6yokuaru/nettowku/README.md)
     * [ネットワーク追加: Klaytn](appudto/6yokuaru/nettowku/nettowku-klaytn.md)
     * [ネットワーク追加: Optimism](appudto/6yokuaru/nettowku/nettowku-optimism.md)
     * [ネットワーク追加: Arbitrum](appudto/6yokuaru/nettowku/nettowku-arbitrum.md)
@@ -75,6 +90,9 @@
   * [FT一括送金機能](appudto/6yokuaru/ft-yi-kuo-song-jin-ji-neng.md)
   * [Gas代の編集](appudto/6yokuaru/gasno.md)
   * [請求書送付先メールアドレスの変更手順](appudto/6yokuaru/mruadoresuno.md)
-* [7.スマートフォンでの使い方](appudto/7sumtofondenoi/README.md)
+
+## スマートフォンでの利用
+
+* [スマートフォンでの使い方](appudto/7sumtofondenoi/README.md)
   * [スマートフォンアプリについて](appudto/7sumtofondenoi/sumtofonapurinitsuite.md)
   * [スマホUI: 申請一覧と申請詳細](appudto/7sumtofondenoi/sumahoui-to.md)

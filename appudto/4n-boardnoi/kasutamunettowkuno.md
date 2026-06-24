@@ -1,12 +1,12 @@
 ---
-description: 本記事では、任意のネットワークをN boardに追加する方法を説明します。
+description: 本記事では、任意のネットワークをN Boardに追加する方法を説明します。
 ---
 
 # カスタムネットワークの追加
 
 ## カスタムネットワークの追加方法 <a href="#instructions-to-use-article-templates" id="instructions-to-use-article-templates"></a>
 
-① N board上でネットワークを追加
+① N Board上でネットワークを追加
 
 1. チームを選択
 2. ネットワークのタブを選択

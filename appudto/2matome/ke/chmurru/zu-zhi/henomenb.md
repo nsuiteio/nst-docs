@@ -7,8 +7,8 @@
 {% endhint %}
 
 {% hint style="warning" %}
-本手順は、N boardにログインし、操作を行なってください。\
-【N boardのURL】\
+本手順は、N Boardにログインし、操作を行なってください。\
+【N BoardのURL】\
 [http://board.nsuite.io/](http://board.nsuite.io/)
 {% endhint %}
 
