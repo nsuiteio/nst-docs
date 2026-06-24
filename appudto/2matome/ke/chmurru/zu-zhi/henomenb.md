@@ -26,7 +26,4 @@
 
 組織ロールの詳細については下記ページを参照ください：
 
-{% content-ref url="/broken/pages/cxYWtOUMuSOZ5aBqPPLe" %}
-[Broken link](/broken/pages/cxYWtOUMuSOZ5aBqPPLe)
-{% endcontent-ref %}
-
+[組織ロールの説明](../rru/rruno.md)

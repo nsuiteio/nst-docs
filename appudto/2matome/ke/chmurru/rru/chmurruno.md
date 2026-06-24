@@ -10,6 +10,4 @@
 
 組織レベルのロールは別途設定・管理が必要です。下記ページを参照ください：
 
-{% content-ref url="/broken/pages/cxYWtOUMuSOZ5aBqPPLe" %}
-[Broken link](/broken/pages/cxYWtOUMuSOZ5aBqPPLe)
-{% endcontent-ref %}
+[組織ロールの説明](rruno.md)

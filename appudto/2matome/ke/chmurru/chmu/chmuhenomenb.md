@@ -22,6 +22,4 @@
 
 チームロールの詳細について下記ページを参照ください：
 
-{% content-ref url="/broken/pages/uWwSufjA5ELza0hpdPdX" %}
-[Broken link](/broken/pages/uWwSufjA5ELza0hpdPdX)
-{% endcontent-ref %}
+[チームロールの説明](../rru/chmurruno.md)

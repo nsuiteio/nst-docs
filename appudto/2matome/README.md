@@ -8,29 +8,13 @@
 秘密鍵の発行等が伴うので、ほとんどのステップが管理者や最高のアクセス権限を持つ想定のユーザーの操作が必要になります。
 {% endhint %}
 
-{% content-ref url="/broken/pages/iQEu4CZ3TTBLiBbotqlL" %}
-[Broken link](/broken/pages/iQEu4CZ3TTBLiBbotqlL)
-{% endcontent-ref %}
+## 初期設定の推奨順
 
-{% content-ref url="/broken/pages/ktWEcshTm4zD7HC2xUDl" %}
-[Broken link](/broken/pages/ktWEcshTm4zD7HC2xUDl)
-{% endcontent-ref %}
-
-{% content-ref url="/broken/pages/cDv4PIGCz6gTU6U4JvvJ" %}
-[Broken link](/broken/pages/cDv4PIGCz6gTU6U4JvvJ)
-{% endcontent-ref %}
-
-{% content-ref url="/broken/pages/0hoIQNeCi7Qt0cF8MZXV" %}
-[Broken link](/broken/pages/0hoIQNeCi7Qt0cF8MZXV)
-{% endcontent-ref %}
-
-{% content-ref url="/broken/pages/OlPavnyb0XgRDrJpfIfY" %}
-[Broken link](/broken/pages/OlPavnyb0XgRDrJpfIfY)
-{% endcontent-ref %}
-
-{% content-ref url="/broken/pages/lf276iqxvpYYhy5ohAq2" %}
-[Broken link](/broken/pages/lf276iqxvpYYhy5ohAq2)
-{% endcontent-ref %}
-
+1. [初回ログイン手順](../1hajimeni/roguin.md)
+2. [組織/チーム/ロールの設定](ke/chmurru/README.md)
+3. [署名・鍵管理の方式を選択](../3.-shu-ming-jian-guan-li/README.md)
+4. [N Walletのインストール（AWS KMS）](../3.-shu-ming-jian-guan-li/aws-kms/n-walletnoinsutru.md) / [N Walletのインストール（Ledger）](../3.-shu-ming-jian-guan-li/ledger/n-walletnoinsutru.md)
+5. [チームへの保有アドレス登録](ke/chmurru/chmu/chmuhenoadoresu.md)
+6. [ワークフローのプロセス設定](ke/wkufur/wkufurnopurosesu.md)
 
 

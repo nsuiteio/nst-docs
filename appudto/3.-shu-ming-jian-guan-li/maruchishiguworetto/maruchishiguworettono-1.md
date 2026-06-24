@@ -4,13 +4,13 @@
 　N Suiteでマルチシグウォレットが利用可能になるまでのフローを記載しています。
 {% endhint %}
 
-#### 1. マルチシグウォレットを登録する[チームを作成する](/broken/pages/WVIjDxukqMCpibbly0Cw)
+#### 1. マルチシグウォレットを登録する[チームを作成する](../../2matome/ke/chmurru/zu-zhi/chmuno.md)
 
 #### 2. マルチシグウォレットの署名に使うアドレス(User Signer Group用 + Backup Signer Group用)を作成する
 
-&#x20; [AWS KMSの秘密鍵](/broken/pages/ktWEcshTm4zD7HC2xUDl)または[ハードウェアウォレット](/broken/pages/kN9OyzG4cHkrm207HdbC)が必要になります。
+&#x20; [AWS KMSの秘密鍵](../aws-kms/README.md)または[ハードウェアウォレット](../ledger/README.md)が必要になります。
 
-#### 3.  ↑で作成したアドレスを[チームへ追加](/broken/pages/F1a6yQSaW4c7SU6FH5IE)する
+#### 3.  ↑で作成したアドレスを[チームへ追加](../../2matome/ke/chmurru/chmu/chmuhenoadoresu.md)する
 
 ※マルチシグウォレットを登録するチームと同一のチームへアドレスを登録していることを確認ください
 

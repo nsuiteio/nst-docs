@@ -16,9 +16,7 @@
 
 <figure><img src="../../../../../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
 
-{% content-ref url="/broken/pages/6uKOdudZMYPQ3PtnMEHw" %}
-[Broken link](/broken/pages/6uKOdudZMYPQ3PtnMEHw)
-{% endcontent-ref %}
+チームロールの詳細については[チームロールの説明](../rru/chmurruno.md)を参照ください。
 
 {% hint style="warning" %}
 チームメンバーの名前・アドレスの編集機能はございません。削除→再追加をお願いします。
@@ -29,4 +27,3 @@
 ③ 編集したいメンバーのチームロール部分をクリックし、変更したいロールを選択
 
 <figure><img src="../../../../../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
-
