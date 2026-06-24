@@ -6,4 +6,4 @@
 
 * [組織/チーム/ロール](organization-team-roles/README.md)
 * [ワークフロー](workflow/README.md)
-* [二要素認証(2FA)](er-yao-su-ren-zheng-2fa.md)
+* [二要素認証(2FA)](two-factor-authentication.md)

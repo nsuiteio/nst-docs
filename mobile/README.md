@@ -4,5 +4,5 @@
 
 ## 主な手順
 
-* [スマートフォンアプリについて](sumtofonapurinitsuite.md)
-* [スマホUI: 申請一覧と申請詳細](sumahoui-to.md)
+* [スマートフォンアプリについて](mobile-app.md)
+* [スマホUI: 申請一覧と申請詳細](mobile-ui-requests.md)

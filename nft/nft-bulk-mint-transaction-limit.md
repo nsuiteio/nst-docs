@@ -8,7 +8,7 @@ OpenSea等のNFTマーケットプレイスは、1TxごとのMint数に上限を
 
 ### 操作手順
 
-[NFT Mint 専用フォームの基本的な使い方](nft-mint-fmu-mint.md)は変わりません。上限設定の画面をアクセスするには、申請フォーム内の「発行リスト」の横にある「詳細設定」をクリックします。
+[NFT Mint 専用フォームの基本的な使い方](nft-mint-form-bulk-mint.md)は変わりません。上限設定の画面をアクセスするには、申請フォーム内の「発行リスト」の横にある「詳細設定」をクリックします。
 
 <figure><img src="../.gitbook/assets/image (88).png" alt=""><figcaption><p>NFT Mint せんようフォーム</p></figcaption></figure>
 

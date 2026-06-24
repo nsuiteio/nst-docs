@@ -31,5 +31,5 @@ description: 初回にN Suite運営チームが登録したSinger Groupの他に
 <figure><img src="../../.gitbook/assets/c.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
-マルチシグウォレットのSigner Groupにハードウェアウォレットを追加する場合は、事前にN Walletにアドレスを追加する必要があります。追加の方法は[アドレスのN Walletへの追加方法](../ledger/adoresunon-walletheno.md)を確認してください。
+マルチシグウォレットのSigner Groupにハードウェアウォレットを追加する場合は、事前にN Walletにアドレスを追加する必要があります。追加の方法は[アドレスのN Walletへの追加方法](../ledger/add-address-to-n-wallet.md)を確認してください。
 {% endhint %}

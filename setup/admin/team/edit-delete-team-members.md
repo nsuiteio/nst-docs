@@ -16,7 +16,7 @@
 
 <figure><img src="../../../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
 
-チームロールの詳細については[チームロールの説明](../roles/chmurruno.md)を参照ください。
+チームロールの詳細については[チームロールの説明](../roles/team-roles.md)を参照ください。
 
 {% hint style="warning" %}
 チームメンバーの名前・アドレスの編集機能はございません。削除→再追加をお願いします。

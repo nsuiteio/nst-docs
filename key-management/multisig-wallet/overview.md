@@ -85,7 +85,7 @@ Backup Signer Groupを使って下記の操作を行うためには、N Suiteの
 \
 これらの操作が必要な場合、下記のメールアドレスまでご連絡ください。
 
-[contact@nsuite.io](maruchishiguworettono.md#id-2-n-suitenomaruchishiguworetto)
+[contact@nsuite.io](overview.md#id-2-n-suitenomaruchishiguworetto)
 {% endhint %}
 
 #### 4. **マルチシグウォレットに登録するアドレス**

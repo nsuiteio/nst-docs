@@ -28,4 +28,4 @@
 
 組織ロールの詳細については下記ページを参照ください：
 
-[組織ロールの説明](../roles/rruno.md)
+[組織ロールの説明](../roles/organization-roles.md)

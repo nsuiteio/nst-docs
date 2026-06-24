@@ -6,8 +6,8 @@ N Suiteの利用開始、管理者設定、署名・鍵管理、N Boardの操作
 
 初回利用時は、以下の順に確認してください。
 
-1. [初回ログイン手順](getting-started/roguin.md)
-2. [動作環境](getting-started/dong-zuo-huan-jing.md)
+1. [初回ログイン手順](getting-started/first-login.md)
+2. [動作環境](getting-started/operating-environment.md)
 3. [導入・初期設定](setup/README.md)
 4. [署名・鍵管理](key-management/README.md)
 

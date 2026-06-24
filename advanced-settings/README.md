@@ -5,10 +5,10 @@
 ## 主な項目
 
 * [ネットワーク設定](network/README.md)
-* [プリセットコントラクトの一覧](purisettokontorakutono.md)
-* [コントラクトメソッドの実行手順](kontorakutomesoddono.md)
-* [コントラクトメソッドの一括実行](kontorakutomesoddono-1.md)
-* [Wallet Connect の接続方法](wallet-connect-no.md)
-* [FT一括送金機能](ft-yi-kuo-song-jin-ji-neng.md)
-* [Gas代の編集](gasno.md)
-* [請求書送付先メールアドレスの変更手順](mruadoresuno.md)
+* [プリセットコントラクトの一覧](preset-contract-list.md)
+* [コントラクトメソッドの実行手順](execute-contract-method.md)
+* [コントラクトメソッドの一括実行](execute-contract-methods-in-bulk.md)
+* [Wallet Connect の接続方法](connect-wallet-connect.md)
+* [FT一括送金機能](bulk-ft-transfer.md)
+* [Gas代の編集](edit-gas-fee.md)
+* [請求書送付先メールアドレスの変更手順](change-billing-email-address.md)
