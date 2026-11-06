@@ -59,3 +59,7 @@ IAMユーザーとは、AWS KMSで作成した秘密鍵にアクセスするた�
 {% hint style="danger" %}
 ※ この画面を閉じると `Secret access key` は二度と確認できなくなるため、忘れずに情報を控えてください
 {% endhint %}
+
+{% hint style="info" %}
+署名する人に N Wallet の QR コードで MFA デバイスを登録してもらう場合は、アクセスキーを渡すときに、この IAM ユーザーに期限付きの MFA 登録用ポリシーを付けてください。手順は[アクセスキーを渡すときに、MFA 登録用のポリシーを期限付きで付ける](attach-mfa-registration-policy.md)を参照してください。
+{% endhint %}

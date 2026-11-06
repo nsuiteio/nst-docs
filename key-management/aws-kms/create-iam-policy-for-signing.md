@@ -6,6 +6,10 @@ IAMポリシーとは？
 AWS KMSでは、鍵の作成、使用、管理を行う際に、アクセス制御を行うためにIAMポリシーを使用します。IAMポリシーは、誰がどの操作を行えるかを定義し、特定のKMSキーやリソースへのアクセスを制限・許可するためのルールセットです。本記事では、IAMポリシーを作成し、秘密鍵の署名権限を定めます。
 {% endhint %}
 
+{% hint style="info" %}
+アクセスキーが漏れても、それだけでは署名できないようにするには、このポリシーの許可に MFA の条件を付けます。署名する人が N Wallet で MFA を設定してから付けてください。順番と条件は[KMS の署名に MFA を必須にする](require-mfa-for-kms-signing.md)を参照してください。
+{% endhint %}
+
 * 組織によって署名権限の付与のパターンが異なります。全社共通で同じ秘密鍵を使用するパターン（下記図）では下記Step4を参照してください。（Step5は割愛）
 
 <figure><img src="../../.gitbook/assets/image (17).png" alt="" width="563"><figcaption></figcaption></figure>
