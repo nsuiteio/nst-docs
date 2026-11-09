@@ -22,9 +22,7 @@ description: 初期設定が済んでいるN Walletへのアクセスキーの�
 
 **④「Amazon Web Services」を選択し、アドレス登録へ進む**
 
-{% hint style="danger" %}
-TODO: 今の画面のスクリーンショットに差し替える（「タイプ選択」の画面。今のボタンは「Amazon Web Services」と「ハードウェアウォレット」の2つ）
-{% endhint %}
+<figure><img src="../../.gitbook/assets/n-wallet-n-cloud-key-add-type-select.png" alt="タイプ選択。Amazon Web Services とハードウェアウォレット" width="357"><figcaption><p>「タイプ選択」</p></figcaption></figure>
 
 **⑤ 初期設定と同じ操作で、アドレス登録を完了させる**
 

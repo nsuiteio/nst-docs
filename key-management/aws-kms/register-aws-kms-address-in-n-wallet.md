@@ -23,9 +23,7 @@ MFA を使う場合は、あわせて次のどちらかが必要です。
 
 ## ① 秘密鍵管理サービスで「Amazon Web Service」を選択
 
-{% hint style="danger" %}
-TODO: 今の画面のスクリーンショットに差し替える（「お使いの秘密鍵管理サービスを選んでください。」の画面。今のボタンは「Amazon Web Service」と「ハードウェアウォレット」の2つ）
-{% endhint %}
+<figure><img src="../../.gitbook/assets/n-wallet-kms-initial-service-select.png" alt="初期設定の秘密鍵管理サービスの選択。Amazon Web Service とハードウェアウォレット" width="357"><figcaption><p>秘密鍵管理サービスの選択</p></figcaption></figure>
 
 ## ② AWSの認証情報を入力し、MFA の使い方を選んで「登録」をクリック
 

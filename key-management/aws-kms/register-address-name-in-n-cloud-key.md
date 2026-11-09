@@ -6,9 +6,7 @@ description: N Wallet内に登録済みのアドレスやN Cloud Keyへ名前（
 
 **① アドレスへの名前登録**
 
-{% hint style="danger" %}
-TODO: 今の画面のスクリーンショットに差し替える（アカウント一覧でアドレスの「･･･」から「名前設定」を開いた画面。今のアカウント一覧には「リストを更新」ボタンが無い）
-{% endhint %}
+<figure><img src="../../.gitbook/assets/n-wallet-account-menu-name.png" alt="アカウント一覧のアドレスのメニューの名前設定" width="357"><figcaption><p>アドレスのメニュー（画像のアドレスは架空の値です）</p></figcaption></figure>
 
 アカウント一覧では、"Main Wallet" "Sub Wallet"という風にアドレスに名前を付けることができます。アドレスの右側に表示されている「･･･」から「名前設定」を選択し、任意の名前を入力ください。
 
