@@ -103,10 +103,6 @@ MFA を強制する Deny ポリシーを使う場合は、`sts:GetSessionToken` 
 * KMS の鍵ポリシー（ユーザーを直接許可していないか）
 
 {% hint style="info" %}
-署名する人の N Wallet の「N Cloud Key 管理」で「MFA なしで署名できます」と出ていれば、どこかに経路が残っています（[警告の見え方](n-wallet-mfa-settings.md)）。
-{% endhint %}
-
-{% hint style="info" %}
 N Wallet は MFA が効いているかを確かめるため、MFA なしの署名を試します（実際には署名しません）。MFA が効いていると CloudTrail に `kms:Sign` の `AccessDenied` が記録されるので、監視している場合は担当者に伝えてください。
 {% endhint %}
 
@@ -114,11 +110,15 @@ N Wallet は MFA が効いているかを確かめるため、MFA なしの署�
 
 手順9は、次の順番で行ってください。
 
-1. N Wallet を最新版に更新する（[手動アップデート](update-n-wallet.md)）
-2. 署名する人が N Wallet で MFA を設定する（[MFA 設定](n-wallet-mfa-settings.md)。QR コードで登録する場合は、IAM ユーザーに MFA 登録用のポリシーを付ける。[IAMユーザーの作成](create-iam-user-for-signing.md)の手順4）
-3. 「N Cloud Key 管理」で、すべての N Cloud Key に「MFA 設定済み」と出ていることを確認する
+1. 署名する人に、N Wallet の更新と MFA の設定を依頼する
+2. QR コードで登録してもらう場合は、IAM ユーザーに MFA 登録用のポリシーを付ける（[IAMユーザーの作成](create-iam-user-for-signing.md)の手順4）
+3. IAM コンソールで、各 IAM ユーザーの「Security credentials」に MFA デバイスが登録されたことを確認する
 4. 手順9・10を行う
 
 {% hint style="danger" %}
-手順9を先に行うと、MFA を設定していない N Wallet では署名もアドレスの取得もできなくなります。
+署名する人全員が MFA を設定する前に手順9を行うと、MFA を設定していない人は署名できなくなります。
+{% endhint %}
+
+{% hint style="info" %}
+IAM コンソールで MFA デバイスを登録した場合は、署名する人が N Wallet に ARN を設定し終えたことを、本人に確認してから手順9を行ってください。
 {% endhint %}
