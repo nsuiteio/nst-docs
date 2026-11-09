@@ -70,3 +70,55 @@ AWS KMSでは、鍵の作成、使用、管理を行う際に、アクセス制�
 
 ![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 22.32.24.png>)
 
+#### 9. 作成したポリシーに MFA の条件を付ける
+
+1. 「Policies」で作成したポリシーを開き、「Edit」→「JSON」を選択
+2. `"Effect": "Allow"` のステートメントに次を追加し、保存
+
+```json
+"Condition": {
+  "Bool": { "aws:MultiFactorAuthPresent": "true" },
+  "NumericLessThanEquals": { "aws:MultiFactorAuthAge": "3600" }
+}
+```
+
+{% hint style="info" %}
+アクセスキーが漏れても、MFA（認証アプリのコード）が無ければ署名できなくなります。
+{% endhint %}
+
+{% hint style="warning" %}
+`aws:MultiFactorAuthAge` は **3600 以上**にしてください。N Wallet は1時間有効な認証情報で署名するため、短いと途中で署名が拒否されます。
+{% endhint %}
+
+{% hint style="info" %}
+MFA を強制する Deny ポリシーを使う場合は、`sts:GetSessionToken` を `NotAction` で除外してください。除外しないと N Wallet が MFA の認証を行えません。
+{% endhint %}
+
+#### 10. MFA なしで署名できる経路が無いか確認する
+
+次のどれかで署名を許可していると、MFA なしでも署名できてしまいます。
+
+* そのユーザーに付いている、ほかのポリシー
+* そのユーザーが所属するグループのポリシー
+* KMS の鍵ポリシー（ユーザーを直接許可していないか）
+
+{% hint style="info" %}
+N Wallet は MFA が効いているかを確かめるため、MFA なしの署名を試します（実際には署名しません）。MFA が効いていると CloudTrail に `kms:Sign` の `AccessDenied` が記録されるので、監視している場合は担当者に伝えてください。
+{% endhint %}
+
+## すでに MFA なしで N Wallet を使っている場合
+
+手順9は、次の順番で行ってください。
+
+1. 署名する人に、N Wallet の更新と MFA の設定を依頼する
+2. QR コードで登録してもらう場合は、IAM ユーザーに MFA 登録用のポリシーを付ける（[IAMユーザーの作成](create-iam-user-for-signing.md)の手順4）
+3. IAM コンソールで、各 IAM ユーザーの「Security credentials」に MFA デバイスが登録されたことを確認する
+4. 手順9・10を行う
+
+{% hint style="danger" %}
+署名する人全員が MFA を設定する前に手順9を行うと、MFA を設定していない人は署名できなくなります。
+{% endhint %}
+
+{% hint style="info" %}
+IAM コンソールで MFA デバイスを登録した場合は、署名する人が N Wallet に ARN を設定し終えたことを、本人に確認してから手順9を行ってください。
+{% endhint %}
