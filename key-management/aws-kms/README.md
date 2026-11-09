@@ -22,11 +22,9 @@ N Wallet に登録するアクセスキー（N Cloud Key）ごとに、任意で
 
 1. [初回ログイン手順](first-login.md)
 2. AWS KMS の秘密鍵の作成（[macOS](create-aws-kms-private-key-macos.md) / [Windows](create-aws-kms-private-key-windows.md)）
-3. [IAMポリシーの作成](create-iam-policy-for-signing.md)
-4. [IAMユーザーの作成](create-iam-user-for-signing.md)
-5. [アクセスキーを渡すときに、MFA 登録用のポリシーを期限付きで付ける](attach-mfa-registration-policy.md)
-6. [KMS の署名に MFA を必須にする](require-mfa-for-kms-signing.md)
-7. [複数人で N Wallet を使う場合](multiple-signers.md)
+3. [IAMポリシーの作成](create-iam-policy-for-signing.md)（MFA の条件を含む）
+4. [IAMユーザーの作成](create-iam-user-for-signing.md)（MFA 登録用のポリシーを含む）
+5. [複数人で N Wallet を使う場合](multiple-signers.md)
 
 ### 署名する人（N Wallet を使う人）
 

@@ -39,8 +39,6 @@
     * [AWS KMSの秘密鍵作成手順（Windows向け）](key-management/aws-kms/create-aws-kms-private-key-windows.md)
     * [IAMポリシーの作成：秘密鍵の署名権限を作成する手順](key-management/aws-kms/create-iam-policy-for-signing.md)
     * [IAMユーザーの作成：秘密鍵の署名権限ユーザーを作成する手順](key-management/aws-kms/create-iam-user-for-signing.md)
-    * [アクセスキーを渡すときに、MFA 登録用のポリシーを期限付きで付ける](key-management/aws-kms/attach-mfa-registration-policy.md)
-    * [KMS の署名に MFA を必須にする](key-management/aws-kms/require-mfa-for-kms-signing.md)
     * [複数人で N Wallet を使う場合](key-management/aws-kms/multiple-signers.md)
     * [N Walletのインストール](key-management/aws-kms/install-n-wallet.md)
     * [N Walletの初期設定（AWS KMSのアドレス登録）](key-management/aws-kms/register-aws-kms-address-in-n-wallet.md)

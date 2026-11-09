@@ -23,7 +23,7 @@ MFA を使わずに登録した N Cloud Key にも、後から MFA を設定で�
 ## QR コードで登録する
 
 {% hint style="info" %}
-事前に、インフラ担当がその IAM ユーザーに[期限付きの MFA 登録用ポリシー](attach-mfa-registration-policy.md)を付けている必要があります。その期限内に登録してください。
+事前に、インフラ担当がその IAM ユーザーに[期限付きの MFA 登録用ポリシー](create-iam-user-for-signing.md)を付けている必要があります。その期限内に登録してください。
 {% endhint %}
 
 1. 「QR コードで登録」タブで「QR コードを作成」をクリックします
@@ -73,7 +73,7 @@ MFA なしで署名できる N Cloud Key があると、N Wallet は次の2か�
 | 「N Cloud Key 管理」の表示 | 理由 | 対応 |
 | --- | --- | --- |
 | 「MFA 設定済み」が無い | MFA を設定していません | 鍵のメニューの「MFA 設定」で MFA を設定してください（このページの手順） |
-| 「MFA 設定済み」がある | N Wallet では MFA を設定していますが、AWS の設定で MFA なしでも署名できる状態です | インフラ担当に、KMS の許可へ MFA の条件を付けてもらってください（[KMS の署名に MFA を必須にする](require-mfa-for-kms-signing.md)） |
+| 「MFA 設定済み」がある | N Wallet では MFA を設定していますが、AWS の設定で MFA なしでも署名できる状態です | インフラ担当に、KMS の許可へ MFA の条件を付けてもらってください（[IAMポリシーの作成](create-iam-policy-for-signing.md)の手順9） |
 
 {% hint style="info" %}
 N Wallet は、ホーム画面や「N Cloud Key 管理」を開いたときなどに、MFA なしでの署名が AWS に拒否されるかを確かめています（実際には署名しません）。インフラ担当が AWS の設定を直した後は、ブラウザを開き直すと、確かめ直した結果が表示されます。

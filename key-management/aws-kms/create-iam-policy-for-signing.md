@@ -6,10 +6,6 @@ IAMポリシーとは？
 AWS KMSでは、鍵の作成、使用、管理を行う際に、アクセス制御を行うためにIAMポリシーを使用します。IAMポリシーは、誰がどの操作を行えるかを定義し、特定のKMSキーやリソースへのアクセスを制限・許可するためのルールセットです。本記事では、IAMポリシーを作成し、秘密鍵の署名権限を定めます。
 {% endhint %}
 
-{% hint style="info" %}
-アクセスキーが漏れても、それだけでは署名できないようにするには、このポリシーの許可に MFA の条件を付けます。新しく導入する場合は、ポリシーを作るときに付けて構いません。条件の書き方は[KMS の署名に MFA を必須にする](require-mfa-for-kms-signing.md)を参照してください（すでに MFA を使わずに N Wallet で署名している場合は、同じページの最後にある順番で進めてください）。
-{% endhint %}
-
 * 組織によって署名権限の付与のパターンが異なります。全社共通で同じ秘密鍵を使用するパターン（下記図）では下記Step4を参照してください。（Step5は割愛）
 
 <figure><img src="../../.gitbook/assets/image (17).png" alt="" width="563"><figcaption></figcaption></figure>
@@ -74,3 +70,55 @@ AWS KMSでは、鍵の作成、使用、管理を行う際に、アクセス制�
 
 ![](<../../.gitbook/assets/Screen Shot 2021-12-02 at 22.32.24.png>)
 
+#### 9. 作成したポリシーに MFA の条件を付ける
+
+1. 「Policies」で作成したポリシーを開き、「Edit」→「JSON」を選択
+2. `"Effect": "Allow"` のステートメントに次を追加し、保存
+
+```json
+"Condition": {
+  "Bool": { "aws:MultiFactorAuthPresent": "true" },
+  "NumericLessThanEquals": { "aws:MultiFactorAuthAge": "3600" }
+}
+```
+
+{% hint style="info" %}
+アクセスキーが漏れても、MFA（認証アプリのコード）が無ければ署名できなくなります。
+{% endhint %}
+
+{% hint style="warning" %}
+`aws:MultiFactorAuthAge` は **3600 以上**にしてください。N Wallet は1時間有効な認証情報で署名するため、短いと途中で署名が拒否されます。
+{% endhint %}
+
+{% hint style="info" %}
+MFA を強制する Deny ポリシーを使う場合は、`sts:GetSessionToken` を `NotAction` で除外してください。除外しないと N Wallet が MFA の認証を行えません。
+{% endhint %}
+
+#### 10. MFA なしで署名できる経路が無いか確認する
+
+次のどれかで署名を許可していると、MFA なしでも署名できてしまいます。
+
+* そのユーザーに付いている、ほかのポリシー
+* そのユーザーが所属するグループのポリシー
+* KMS の鍵ポリシー（ユーザーを直接許可していないか）
+
+{% hint style="info" %}
+署名する人の N Wallet の「N Cloud Key 管理」で「MFA なしで署名できます」と出ていれば、どこかに経路が残っています（[警告の見え方](n-wallet-mfa-settings.md)）。
+{% endhint %}
+
+{% hint style="info" %}
+N Wallet は MFA が効いているかを確かめるため、MFA なしの署名を試します（実際には署名しません）。MFA が効いていると CloudTrail に `kms:Sign` の `AccessDenied` が記録されるので、監視している場合は担当者に伝えてください。
+{% endhint %}
+
+## すでに MFA なしで N Wallet を使っている場合
+
+手順9は、次の順番で行ってください。
+
+1. N Wallet を最新版に更新する（[手動アップデート](update-n-wallet.md)）
+2. 署名する人が N Wallet で MFA を設定する（[MFA 設定](n-wallet-mfa-settings.md)。QR コードで登録する場合は、IAM ユーザーに MFA 登録用のポリシーを付ける。[IAMユーザーの作成](create-iam-user-for-signing.md)の手順4）
+3. 「N Cloud Key 管理」で、すべての N Cloud Key に「MFA 設定済み」と出ていることを確認する
+4. 手順9・10を行う
+
+{% hint style="danger" %}
+手順9を先に行うと、MFA を設定していない N Wallet では署名もアドレスの取得もできなくなります。
+{% endhint %}
