@@ -11,23 +11,27 @@ IAMポリシー・KMSの鍵ポリシーを管理するAWSの管理者（イン�
 
 N Wallet の N Cloud Key に MFA を設定するだけでは、AWS 側は MFA なしの署名も受け付けたままです。KMS の許可に MFA の条件を付けると、**アクセスキーが単体で漏れても、それだけでは署名できなくなります**。
 
-## 移行の順番（必ずこの順で行ってください）
+{% hint style="info" %}
+このページは、N Wallet を新しく導入する場合の手順です。すでに MFA を使わずに N Wallet で署名している場合は、このページの最後の「MFA を使わずに運用している環境に導入する場合」の順番で進めてください。
+{% endhint %}
 
-1. **N Wallet を MFA 対応版に更新する**（[N Walletの手動アップデート](update-n-wallet.md)）
-2. **IAM ユーザーに MFA デバイスを登録する**。方法は次のどちらかです
-   * N Wallet の QR コードで登録する。インフラ担当が[期限付きの MFA 登録用ポリシー](attach-mfa-registration-policy.md)を付け、署名する人がその期限内に[MFA 設定](n-wallet-mfa-settings.md)の「QR コードで登録」で登録します
-   * IAM コンソールで登録し、署名する人が N Wallet の「N Cloud Key 管理」→ 鍵のメニュー →「MFA 設定」→「ARN を入力」で ARN を設定する。ARN は、IAM コンソールのユーザーの「セキュリティ認証情報」で確認できます
-3. **各 N Cloud Key に MFA が設定されたことを確認する**。N Wallet の「N Cloud Key 管理」の一覧に「MFA 設定済み」と表示されます
-4. **IAM ポリシーを締める**。KMS の許可に、次の MFA の条件を付けます（下記「MFA の条件」）
-5. **MFA なしで署名できる経路が残っていないか確認する**（下記「MFA なしで署名できる経路の確認」）
+## 設定の流れ
 
-{% hint style="danger" %}
-4を先に行うと、MFA を設定していない N Wallet では、署名もアドレスの取得もできなくなります。
+1. **IAM ポリシーを作るときに、MFA の条件を付ける**。[IAMポリシーの作成](create-iam-policy-for-signing.md)で作る、KMS の署名を許可するポリシーに、下記「MFA の条件」を付けます
+2. **IAM ユーザーとアクセスキーを作る**（[IAMユーザーの作成](create-iam-user-for-signing.md)）
+3. **アクセスキーを渡すときに、[期限付きの MFA 登録用ポリシー](attach-mfa-registration-policy.md)を付ける**
+4. **署名する人が、その期限内に N Wallet の初期設定を行う**。MFA は「新しく登録する（QR コード）」を選び、QR コードで MFA デバイスを登録してから、アドレスを取得します（[N Walletの初期設定（AWS KMSのアドレス登録）](register-aws-kms-address-in-n-wallet.md)）
+5. **MFA が効いていることを確認する**。署名する人の N Wallet の「N Cloud Key 管理」に「MFA 設定済み」と表示され、「MFA なしで署名できます」の警告が出ていないことを確かめます。N Wallet は判定できなかった場合も警告を出さないため、下記「MFA なしで署名できる経路の確認」もあわせて行ってください
+
+{% hint style="info" %}
+* 1で KMS の許可に MFA の条件を付けていても、署名する人は N Wallet で MFA デバイスを登録し、アドレスを取得できます（QR コードで登録する場合は、3の MFA 登録用ポリシーの期限内に限ります）。
+* 署名する人が N Wallet で「MFA を使わない」を選ぶと、アドレスを取得できません。MFA の条件が付いているためで、想定どおりの動きです。
+* すでに MFA デバイスがある IAM ユーザー（2人目以降など）は、3の代わりに MFA デバイスの ARN を署名する人に伝えます。署名する人は、初期設定で「ほかの PC・ブラウザで使っている（ARN を入力）」を選びます。詳しくは[複数人で N Wallet を使う場合](multiple-signers.md)を参照してください。
 {% endhint %}
 
 ## MFA の条件
 
-[IAMポリシーの作成](create-iam-policy-for-signing.md)で作った、KMS の署名を許可するステートメントに、次の `Condition` を付けます。
+KMS の署名を許可するステートメントに、次の `Condition` を付けます。
 
 ```json
 "Condition": {
@@ -53,7 +57,7 @@ AWS コンソールでは、IAM →「ポリシー」で対象のポリシーを
 
 ## MFA なしで署名できる経路の確認
 
-4で条件を付けても、ほかの場所で署名を許可していると、MFA なしで署名できてしまいます。次を確認してください。
+MFA の条件を付けても、ほかの場所で署名を許可していると、MFA なしで署名できてしまいます。次を確認してください。
 
 * そのユーザーに付いている、ほかのポリシー
 * そのユーザーが所属するグループのポリシー
@@ -78,4 +82,20 @@ N Wallet は、MFA なしで署名できる N Cloud Key があると、ホーム
 **CloudTrail で KMS の AccessDenied を監視している場合**
 
 MFA が効いていると、この判定は CloudTrail に `kms:Sign` の `AccessDenied` として記録されます。拒否された記録には DryRun の印が残らないため、通常の署名の失敗と見分けられません。署名する人が「N Cloud Key 管理」を開いたときや、N Cloud Key を登録した直後に、署名用の IAM ユーザーから1件ずつ記録されることを、監視の担当者に伝えておいてください。成功する場合は、`Sign`（DryRun）として記録されます。
+{% endhint %}
+
+## MFA を使わずに運用している環境に導入する場合
+
+すでに MFA を使わずに N Wallet で署名している場合は、**必ず次の順番で**進めてください。
+
+1. **N Wallet を MFA 対応版に更新する**（[N Walletの手動アップデート](update-n-wallet.md)）
+2. **IAM ユーザーに MFA デバイスを登録する**。方法は次のどちらかです
+   * N Wallet の QR コードで登録する。インフラ担当が[期限付きの MFA 登録用ポリシー](attach-mfa-registration-policy.md)を付け、署名する人がその期限内に[MFA 設定](n-wallet-mfa-settings.md)の「QR コードで登録」で登録します
+   * IAM コンソールで登録し、署名する人が N Wallet の「N Cloud Key 管理」→ 鍵のメニュー →「MFA 設定」→「ARN を入力」で ARN を設定する。ARN は、IAM コンソールのユーザーの「セキュリティ認証情報」で確認できます
+3. **各 N Cloud Key に MFA が設定されたことを確認する**。N Wallet の「N Cloud Key 管理」の一覧に「MFA 設定済み」と表示されます
+4. **IAM ポリシーを締める**。KMS の許可に、上記「MFA の条件」を付けます
+5. **MFA なしで署名できる経路が残っていないか確認する**（上記「MFA なしで署名できる経路の確認」）
+
+{% hint style="danger" %}
+4を先に行うと、MFA を設定していない N Wallet では、署名もアドレスの取得もできなくなります。
 {% endhint %}
