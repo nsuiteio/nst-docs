@@ -66,7 +66,7 @@ IAMユーザーとは、AWS KMSで作成した秘密鍵にアクセスするた�
 
 1. 作成した IAM ユーザーを開き、「Permissions」→「Add permissions」→「Create inline policy」をクリック
 2. 「JSON」に切り替え、中身をすべて消して次を貼り付ける
-3. `__DEADLINE__` の2か所を期限の日時（**UTC**。日本時間から9時間引く）に書き換える
+3. `__DEADLINE__` の2か所を期限の日時（**UTC**。日本時間から9時間引く）に書き換える。1時間後の日時は、CloudShell で `date -u -d '+1 hour' +%Y-%m-%dT%H:%M:%SZ` を実行すると表示されます
 4. ポリシー名に `NWalletMfaRegistration` を入力し、「Create policy」をクリック
 
 ```json
