@@ -73,7 +73,7 @@ AWS KMSでは、鍵の作成、使用、管理を行う際に、アクセス制�
 #### 9. 作成したポリシーに MFA の条件を付ける
 
 {% hint style="danger" %}
-すでに MFA なしで N Wallet を使っている場合は、先にこのページ下の「すでに MFA なしで N Wallet を使っている場合」を確認してください。この手順を行うと、MFA を設定していない人は署名できなくなります。
+すでに MFA なしで N Wallet を使っている場合は、先に[すでに N Wallet を使っている場合の MFA の設定](enable-mfa-for-existing-users.md)を確認してください。この手順を行うと、MFA を設定していない人は署名できなくなります。
 {% endhint %}
 
 1. 「Policies」で作成したポリシーを開き、「Edit」→「JSON」を選択
@@ -117,17 +117,4 @@ N Wallet は MFA が効いているかを確かめるため、MFA なしの署�
 
 ## すでに MFA なしで N Wallet を使っている場合
 
-手順9は、次の順番で行ってください。
-
-1. 署名する人に、N Wallet の更新と MFA の設定を依頼する
-2. QR コードで登録してもらう場合は、IAM ユーザーに MFA 登録用のポリシーを付ける（[IAMユーザーの作成](create-iam-user-for-signing.md)の手順4）
-3. IAM コンソールで、各 IAM ユーザーの「Security credentials」に MFA デバイスが登録されたことを確認する
-4. 手順9・10を行う
-
-{% hint style="danger" %}
-署名する人全員が MFA を設定する前に手順9を行うと、MFA を設定していない人は署名できなくなります。
-{% endhint %}
-
-{% hint style="info" %}
-IAM コンソールで MFA デバイスを登録した場合は、署名する人が N Wallet に ARN を設定し終えたことを、本人に確認してから手順9を行ってください。
-{% endhint %}
+[すでに N Wallet を使っている場合の MFA の設定](enable-mfa-for-existing-users.md)の順番で、手順9・10を行ってください。

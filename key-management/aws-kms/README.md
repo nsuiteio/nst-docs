@@ -18,6 +18,10 @@ N Wallet に登録するアクセスキー（N Cloud Key）ごとに、任意で
 
 ## 読む人ごとのページ
 
+### すでに N Wallet を使っている組織
+
+* [すでに N Wallet を使っている場合の MFA の設定](enable-mfa-for-existing-users.md)
+
 ### インフラ担当（AWS の管理者）
 
 1. [初回ログイン手順](first-login.md)

@@ -34,6 +34,7 @@
     * [既存のマルチシグウォレットへアドレスを追加登録](key-management/multisig-wallet/add-address-to-existing-multisig-wallet.md)
     * [既存のマルチシグウォレットからアドレスを削除](key-management/multisig-wallet/remove-address-from-existing-multisig-wallet.md)
   * [AWS KMS](key-management/aws-kms/README.md)
+    * [すでに N Wallet を使っている場合の MFA の設定](key-management/aws-kms/enable-mfa-for-existing-users.md)
     * [初回ログイン手順](key-management/aws-kms/first-login.md)
     * [AWS KMSの秘密鍵作成手順 （macOS向け）](key-management/aws-kms/create-aws-kms-private-key-macos.md)
     * [AWS KMSの秘密鍵作成手順（Windows向け）](key-management/aws-kms/create-aws-kms-private-key-windows.md)
