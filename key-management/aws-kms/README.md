@@ -37,5 +37,5 @@ N Wallet に登録するアクセスキー（N Cloud Key）ごとに、任意で
 
 {% hint style="info" %}
 **これまで MFA なしで使っていて、MFA に切り替える場合**\
-MFA に切り替える手順は、[MFA なしで使っている場合の MFA への切り替え](enable-mfa-for-existing-users.md)を見てください。
+[MFA なしで使っている場合の MFA への切り替え](enable-mfa-for-existing-users.md)の順番で行ってください。
 {% endhint %}
