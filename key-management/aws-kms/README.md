@@ -18,10 +18,6 @@ N Wallet に登録するアクセスキー（N Cloud Key）ごとに、任意で
 
 ## 読む人ごとのページ
 
-### すでに N Wallet を使っている組織
-
-* [すでに N Wallet を使っている場合の MFA の設定](enable-mfa-for-existing-users.md)
-
 ### インフラ担当（AWS の管理者）
 
 1. [初回ログイン手順](first-login.md)
@@ -38,3 +34,8 @@ N Wallet に登録するアクセスキー（N Cloud Key）ごとに、任意で
 4. [MFA を設定した N Cloud Key で署名する](sign-with-mfa.md)
 5. [MFA 設定と「MFA なしで署名できます」の警告](n-wallet-mfa-settings.md)
 6. [別の PC・ブラウザで使う](use-on-another-pc.md)
+
+{% hint style="info" %}
+**すでに N Wallet を使っている組織**\
+MFA に切り替える手順は、[すでに N Wallet を使っている場合の MFA の設定](enable-mfa-for-existing-users.md)を見てください。
+{% endhint %}
