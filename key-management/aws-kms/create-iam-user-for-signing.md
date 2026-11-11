@@ -62,7 +62,7 @@ IAMユーザーとは、AWS KMSで作成した秘密鍵にアクセスするた�
 
 ## 4. MFA 登録用のポリシーを期限付きで付ける
 
-アクセスキーを N Wallet を使う人に渡すときに行います。
+N Wallet を使う人にアクセスキーを渡すときに行います。
 
 1. 作成した IAM ユーザーを開き、「Permissions」→「Add permissions」→「Create inline policy」をクリック
 2. 「JSON」に切り替え、中身をすべて消して次を貼り付ける
@@ -128,7 +128,7 @@ aws iam put-user-policy --user-name <ユーザー名> \
 新しいユーザーなのに、期限内でも上のエラーになる場合は、誰かが先に MFA デバイスを登録した（アクセスキーが盗まれた）おそれがあります。身に覚えのない MFA デバイスがあれば、アクセスキーを無効化して作り直してください。
 {% endhint %}
 
-## 5. アクセスキーを N Wallet を使う人に渡す
+## 5. N Wallet を使う人にアクセスキーを渡す
 
 N Wallet を使う人に、期限内に [N Walletの初期設定](register-aws-kms-address-in-n-wallet.md)を行ってもらいます。
 
