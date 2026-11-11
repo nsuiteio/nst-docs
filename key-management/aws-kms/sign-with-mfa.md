@@ -6,7 +6,7 @@ description: MFA を設定した AWS KMS の N Cloud Key で、署名の前に�
 
 {% hint style="warning" %}
 本手順の対象者：\
-N Wallet で署名する人
+N Wallet を使う人
 {% endhint %}
 
 MFA を設定した N Cloud Key では、署名の前に、スマホの認証アプリに表示される6桁のコードを入力します。

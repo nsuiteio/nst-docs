@@ -26,7 +26,7 @@ N Wallet に登録するアクセスキー（N Cloud Key）ごとに、任意で
 4. [IAMユーザーの作成](create-iam-user-for-signing.md)（MFA 登録用のポリシーを含む）
 5. [複数人で N Wallet を使う場合](multiple-signers.md)
 
-### 署名する人（N Wallet を使う人）
+### N Wallet を使う人
 
 1. [N Walletのインストール](install-n-wallet.md)
 2. [N Walletの初期設定（AWS KMSのアドレス登録）](register-aws-kms-address-in-n-wallet.md)
@@ -34,3 +34,8 @@ N Wallet に登録するアクセスキー（N Cloud Key）ごとに、任意で
 4. [MFA を設定した N Cloud Key で署名する](sign-with-mfa.md)
 5. [MFA 設定と「MFA なしで署名できます」の警告](n-wallet-mfa-settings.md)
 6. [別の PC・ブラウザで使う](use-on-another-pc.md)
+
+{% hint style="info" %}
+**これまで MFA なしで使っていて、MFA に切り替える場合**\
+[MFA なしで使っている場合の MFA への切り替え](enable-mfa-for-existing-users.md)の順番で行ってください。
+{% endhint %}

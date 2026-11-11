@@ -1,5 +1,5 @@
 ---
-description: 複数の署名する人が、MFA を設定した AWS KMS の鍵を N Wallet で使う場合の構成と手順です。
+description: 複数人が、MFA を設定した AWS KMS の鍵を N Wallet で使う場合の構成と手順です。
 ---
 
 # 複数人で N Wallet を使う場合
@@ -11,7 +11,7 @@ IAMユーザーとアクセスキーを発行するAWSの管理者（インフ�
 
 ## おすすめ: 一人ずつ IAM ユーザーを作る
 
-署名する人ごとに、[IAMユーザーの作成](create-iam-user-for-signing.md)の手順1〜5を行います。KMS の鍵は同じものを使えます。
+N Wallet を使う人ごとに、[IAMユーザーの作成](create-iam-user-for-signing.md)の手順1〜5を行います。KMS の鍵は同じものを使えます。
 
 {% hint style="info" %}
 各自が N Wallet の QR コードで、自分で MFA デバイスを登録できます。一人が辞めたり端末をなくしたりしても、その人のアクセスキーだけを止められ、誰が署名したかも IAM ユーザー名で分かります。

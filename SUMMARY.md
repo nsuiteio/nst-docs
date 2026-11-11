@@ -48,6 +48,7 @@
     * [別の PC・ブラウザで使う](key-management/aws-kms/use-on-another-pc.md)
     * [アドレスとN Cloud Keyへの名前登録](key-management/aws-kms/register-address-name-in-n-cloud-key.md)
     * [N Walletの手動アップデート](key-management/aws-kms/update-n-wallet.md)
+    * [MFA なしで使っている場合の MFA への切り替え](key-management/aws-kms/enable-mfa-for-existing-users.md)
   * [Ledger](key-management/ledger/README.md)
     * [N Walletのインストール](key-management/ledger/install-n-wallet.md)
     * [N Walletの初期設定（Ledgerのアドレス登録）](key-management/ledger/register-ledger-address-in-n-wallet.md)
