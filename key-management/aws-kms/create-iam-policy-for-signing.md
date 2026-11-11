@@ -73,7 +73,7 @@ AWS KMSでは、鍵の作成、使用、管理を行う際に、アクセス制�
 #### 9. 作成したポリシーに MFA の条件を付ける
 
 {% hint style="danger" %}
-すでに MFA なしで N Wallet を使っている場合は、先に[すでに N Wallet を使っている場合の MFA の設定](enable-mfa-for-existing-users.md)を確認してください。この手順を行うと、MFA を設定していない人は署名できなくなります。
+すでに MFA なしで N Wallet を使っている場合は、先に[MFA なしで使っている場合の MFA への切り替え](enable-mfa-for-existing-users.md)を確認してください。この手順を行うと、MFA を設定していない人は署名できなくなります。
 {% endhint %}
 
 1. 「Policies」で作成したポリシーを開き、「Edit」→「JSON」を選択
@@ -117,4 +117,4 @@ N Wallet は MFA が効いているかを確かめるため、MFA なしの署�
 
 ## すでに MFA なしで N Wallet を使っている場合
 
-[すでに N Wallet を使っている場合の MFA の設定](enable-mfa-for-existing-users.md)の順番で、手順9・10を行ってください。
+[MFA なしで使っている場合の MFA への切り替え](enable-mfa-for-existing-users.md)の順番で、手順9・10を行ってください。

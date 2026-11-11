@@ -2,7 +2,7 @@
 description: MFA なしで AWS KMS の N Wallet を使っている組織が、MFA を使うように切り替える手順です。
 ---
 
-# すでに N Wallet を使っている場合の MFA の設定
+# MFA なしで使っている場合の MFA への切り替え
 
 {% hint style="warning" %}
 本手順の対象者：\
