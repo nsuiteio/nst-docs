@@ -62,7 +62,7 @@ IAMユーザーとは、AWS KMSで作成した秘密鍵にアクセスするた�
 
 ## 4. MFA 登録用のポリシーを期限付きで付ける
 
-アクセスキーを署名する人に渡すときに行います。
+アクセスキーを N Wallet を使う人に渡すときに行います。
 
 1. 作成した IAM ユーザーを開き、「Permissions」→「Add permissions」→「Create inline policy」をクリック
 2. 「JSON」に切り替え、中身をすべて消して次を貼り付ける
@@ -94,7 +94,7 @@ IAMユーザーとは、AWS KMSで作成した秘密鍵にアクセスするた�
 例: 日本時間 2026-10-27 15:00 から1時間なら `2026-10-27T07:00:00Z`
 
 {% hint style="info" %}
-署名する人が、N Wallet の QR コードで自分の MFA デバイスを登録できるようになります（画面共有で QR コードを読み取る必要がありません）。
+N Wallet を使う人が、N Wallet の QR コードで自分の MFA デバイスを登録できるようになります（画面共有で QR コードを読み取る必要がありません）。
 {% endhint %}
 
 {% hint style="warning" %}
@@ -116,11 +116,11 @@ aws iam put-user-policy --user-name <ユーザー名> \
 ```
 
 {% hint style="info" %}
-**署名する人から「MFA デバイスを登録する権限がありません。」と連絡があったとき**
+**N Wallet を使う人から「MFA デバイスを登録する権限がありません。」と連絡があったとき**
 
 * 期限切れ: 期限を延ばして付け直す（同じ名前で上書きされます）
 * パス付きの IAM ユーザー（`user/部署/名前`）: 2つ目の `Resource` を、そのユーザーの ARN に書き換える
-* すでに MFA デバイスがある: 2台目以降は N Wallet から登録できません。「Security credentials」→「Assign MFA device」で登録し、ARN を署名する人に伝える
+* すでに MFA デバイスがある: 2台目以降は N Wallet から登録できません。「Security credentials」→「Assign MFA device」で登録し、ARN を N Wallet を使う人に伝える
 * SCP やアクセス許可の境界: 組織の管理者に確認する
 {% endhint %}
 
@@ -128,9 +128,9 @@ aws iam put-user-policy --user-name <ユーザー名> \
 新しいユーザーなのに、期限内でも上のエラーになる場合は、誰かが先に MFA デバイスを登録した（アクセスキーが盗まれた）おそれがあります。身に覚えのない MFA デバイスがあれば、アクセスキーを無効化して作り直してください。
 {% endhint %}
 
-## 5. アクセスキーを署名する人に渡す
+## 5. アクセスキーを N Wallet を使う人に渡す
 
-署名する人に、期限内に [N Walletの初期設定](register-aws-kms-address-in-n-wallet.md)を行ってもらいます。
+N Wallet を使う人に、期限内に [N Walletの初期設定](register-aws-kms-address-in-n-wallet.md)を行ってもらいます。
 
 {% hint style="info" %}
 複数人で使う場合は、一人ずつ IAM ユーザーを作るのがおすすめです（[複数人で N Wallet を使う場合](multiple-signers.md)）。

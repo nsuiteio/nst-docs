@@ -6,7 +6,7 @@ description: 登録済みの AWS KMS の N Cloud Key に MFA を設定する手�
 
 {% hint style="warning" %}
 本手順の対象者：\
-N Wallet で署名する人
+N Wallet を使う人
 {% endhint %}
 
 MFA を使わずに登録した N Cloud Key にも、後から MFA を設定できます。「N Cloud Key 管理」で、対象の N Cloud Key の右側の「･･･」から「MFA 設定」を選択します。
