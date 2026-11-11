@@ -62,50 +62,54 @@ IAMユーザーとは、AWS KMSで作成した秘密鍵にアクセスするた�
 
 ## 4. MFA 登録用のポリシーを期限付きで付ける
 
-N Wallet を使う人にアクセスキーを渡すときに行います。
+N Wallet を使う人が、すぐに MFA を登録できるタイミングで行います（期限は1時間程度）。
 
 1. 作成した IAM ユーザーを開き、「Permissions」→「Add permissions」→「Create inline policy」をクリック
 2. 「JSON」に切り替え、中身をすべて消して次を貼り付ける
-3. `__DEADLINE__` の2か所を期限の日時（**UTC**。日本時間から9時間引く）に書き換える。1時間後の日時は、CloudShell で `date -u -d '+1 hour' +%Y-%m-%dT%H:%M:%SZ` を実行すると表示されます
+
+   ```json
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "AllowCreateMfaDeviceUntilDeadline",
+         "Effect": "Allow",
+         "Action": "iam:CreateVirtualMFADevice",
+         "Resource": "arn:aws:iam::*:mfa/*",
+         "Condition": { "DateLessThan": { "aws:CurrentTime": "__DEADLINE__" } }
+       },
+       {
+         "Sid": "AllowEnableOwnMfaUntilDeadline",
+         "Effect": "Allow",
+         "Action": ["iam:EnableMFADevice", "iam:ListMFADevices"],
+         "Resource": "arn:aws:iam::*:user/${aws:username}",
+         "Condition": { "DateLessThan": { "aws:CurrentTime": "__DEADLINE__" } }
+       }
+     ]
+   }
+   ```
+3. `__DEADLINE__` の2か所を、期限の日時（**UTC**。日本時間から9時間引く）に書き換える
+
+   例: 日本時間 2026-10-27 15:00 から1時間なら `2026-10-27T07:00:00Z`
+
+   1時間後の日時は、CloudShell で次を実行すると表示されます。
+
+   ```bash
+   date -u -d '+1 hour' +%Y-%m-%dT%H:%M:%SZ
+   ```
 4. ポリシー名に `NWalletMfaRegistration` を入力し、「Create policy」をクリック
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "AllowCreateMfaDeviceUntilDeadline",
-      "Effect": "Allow",
-      "Action": "iam:CreateVirtualMFADevice",
-      "Resource": "arn:aws:iam::*:mfa/*",
-      "Condition": { "DateLessThan": { "aws:CurrentTime": "__DEADLINE__" } }
-    },
-    {
-      "Sid": "AllowEnableOwnMfaUntilDeadline",
-      "Effect": "Allow",
-      "Action": ["iam:EnableMFADevice", "iam:ListMFADevices"],
-      "Resource": "arn:aws:iam::*:user/${aws:username}",
-      "Condition": { "DateLessThan": { "aws:CurrentTime": "__DEADLINE__" } }
-    }
-  ]
-}
-```
-
-例: 日本時間 2026-10-27 15:00 から1時間なら `2026-10-27T07:00:00Z`
-
-{% hint style="info" %}
-N Wallet を使う人が、N Wallet の QR コードで自分の MFA デバイスを登録できるようになります（画面共有で QR コードを読み取る必要がありません）。
-{% endhint %}
-
 {% hint style="warning" %}
-**期限は必ず付けてください。** 登録前にアクセスキーが盗まれると、盗んだ人が先に自分の MFA デバイスを登録できてしまいます。期限は短いほど安全です（例: 1時間）。本人がすぐ登録できるタイミングで付けてください。
+**期限は必ず付けてください。** 登録前にアクセスキーが盗まれると、盗んだ人が先に自分の MFA デバイスを登録できてしまいます。期限は短いほど安全です。
 {% endhint %}
 
 {% hint style="info" %}
-グループには付けないでください（ユーザーごとに期限が違うため）。登録が済んだら、このポリシーは外して構いません。
+これで、N Wallet を使う人が N Wallet の QR コードで自分の MFA デバイスを登録できます。ユーザーごとに期限が違うため、グループには付けないでください。登録が済んだら、このポリシーは外して構いません。
 {% endhint %}
 
-**CLI で付ける場合**（上の JSON を `nwallet-mfa-registration.json` として保存しておく。期限は1時間後）
+### CLI で付ける場合
+
+上の JSON を `nwallet-mfa-registration.json` として保存し、次を実行します（期限は1時間後）。
 
 ```bash
 DEADLINE=$(date -u -v+1H +%Y-%m-%dT%H:%M:%SZ)   # Linux: date -u -d '+1 hour' +%Y-%m-%dT%H:%M:%SZ
@@ -115,17 +119,17 @@ aws iam put-user-policy --user-name <ユーザー名> \
   --policy-document file:///tmp/nwallet-mfa-registration.json
 ```
 
-{% hint style="info" %}
-**N Wallet を使う人から「MFA デバイスを登録する権限がありません。」と連絡があったとき**
+### 「MFA デバイスを登録する権限がありません。」と連絡があったとき
+
+原因に合わせて対応してください。
 
 * 期限切れ: 期限を延ばして付け直す（同じ名前で上書きされます）
 * パス付きの IAM ユーザー（`user/部署/名前`）: 2つ目の `Resource` を、そのユーザーの ARN に書き換える
 * すでに MFA デバイスがある: 2台目以降は N Wallet から登録できません。「Security credentials」→「Assign MFA device」で登録し、ARN を N Wallet を使う人に伝える
 * SCP やアクセス許可の境界: 組織の管理者に確認する
-{% endhint %}
 
 {% hint style="danger" %}
-新しいユーザーなのに、期限内でも上のエラーになる場合は、誰かが先に MFA デバイスを登録した（アクセスキーが盗まれた）おそれがあります。身に覚えのない MFA デバイスがあれば、アクセスキーを無効化して作り直してください。
+新しいユーザーなのに、期限内でもこのエラーになる場合は、誰かが先に MFA デバイスを登録した（アクセスキーが盗まれた）おそれがあります。身に覚えのない MFA デバイスがあれば、アクセスキーを無効化して作り直してください。
 {% endhint %}
 
 ## 5. N Wallet を使う人にアクセスキーを渡す
