@@ -36,6 +36,6 @@ N Wallet に登録するアクセスキー（N Cloud Key）ごとに、任意で
 6. [別の PC・ブラウザで使う](use-on-another-pc.md)
 
 {% hint style="info" %}
-**すでに N Wallet を使っている組織**\
+**これまで MFA なしで使っていて、MFA に切り替える場合**\
 MFA に切り替える手順は、[すでに N Wallet を使っている場合の MFA の設定](enable-mfa-for-existing-users.md)を見てください。
 {% endhint %}
