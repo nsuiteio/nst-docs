@@ -6,7 +6,7 @@ description: MFA なしで AWS KMS の N Wallet を使っている組織が、MF
 
 {% hint style="warning" %}
 本手順の対象者：\
-MFA なしで AWS KMS の N Wallet を使っている組織の、インフラ担当と N Wallet を使う人
+MFA なしで AWS KMS の N Wallet を使っている組織の、インフラ担当と N Wallet を使う人（N Board の二要素認証(2FA)を使っていても対象です）
 {% endhint %}
 
 次の順番で行ってください。各手順の詳しい操作は、リンク先のページにあります。
