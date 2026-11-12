@@ -16,6 +16,10 @@ N Wallet に登録するアクセスキー（N Cloud Key）ごとに、任意で
 * 正しいコードを入力すると、その後およそ1時間はコードなしで署名できます。
 * MFA を設定しない N Cloud Key の動きは、これまでと変わりません。
 
+{% hint style="warning" %}
+この MFA は、N Board へのログインに使う[二要素認証(2FA)](../../setup/admin/two-factor-authentication.md)とは別のものです。N Board の 2FA を有効にしていても、アクセスキーでの署名は保護されません。
+{% endhint %}
+
 ## 読む人ごとのページ
 
 ### インフラ担当（AWS の管理者）

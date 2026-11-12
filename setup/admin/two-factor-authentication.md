@@ -6,6 +6,10 @@
 
 Google Authenticator のインストールはこちら:  [ iOS ](https://apps.apple.com/app/google-authenticator/id388497605) / [ Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2)
 
+{% hint style="info" %}
+2FA が保護するのは N Board へのログインです。AWS KMS の鍵での署名は、N Wallet で別に [MFA](../../key-management/aws-kms/README.md) を設定して保護します。
+{% endhint %}
+
 
 
 ## 自分のアカウントのみ2FAを有効にする
