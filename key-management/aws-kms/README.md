@@ -15,6 +15,7 @@ N Wallet に登録するアクセスキー（N Cloud Key）ごとに、任意で
 * 使える認証方式は、認証アプリ（Google Authenticator、Microsoft Authenticator、1Password など）の時刻ベースのコード（TOTP）だけです。物理キーやパスキーは使えません（AWS の仕様で、MFA で保護した API の利用は U2F セキュリティキーに対応していないため）。
 * 正しいコードを入力すると、その後およそ1時間はコードなしで署名できます。
 * MFA を設定しない N Cloud Key の動きは、これまでと変わりません。
+* MFA に対応しているのは N Wallet（Chrome 拡張）だけです。N Suite モバイルアプリは未対応のため、モバイルアプリで使う IAM ユーザーには、KMS の許可に MFA の条件を付けないでください。
 
 {% hint style="warning" %}
 この MFA は、N Board へのログインに使う[二要素認証(2FA)](../../setup/admin/two-factor-authentication.md)とは別のものです。N Board の 2FA を有効にしていても、アクセスキーでの署名は保護されません。
