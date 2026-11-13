@@ -20,10 +20,11 @@ MFA なしで AWS KMS の N Wallet を使っている組織の、インフラ担
    * ほかの PC・ブラウザでも同じ N Cloud Key を使っている場合は、そちらでも「ARN を入力」で同じ ARN を設定する
 4. **インフラ担当**: IAM コンソールで、各 IAM ユーザーの「Security credentials」に MFA デバイスが登録されたことを確認する
 5. **インフラ担当**: KMS の許可に MFA の条件を付け、MFA なしで署名できる経路が無いか確認する（[IAMポリシーの作成](create-iam-policy-for-signing.md)の手順9・10）
+   * 先に、N Wallet を使う人に、N Suite モバイルアプリで同じ IAM ユーザーのアクセスキーを使っていないか確かめる（モバイルアプリは MFA に未対応）
 6. **N Wallet を使う人**: ブラウザを開き直し、認証アプリのコードを入力して署名できることを確認する（[MFA を設定した N Cloud Key で署名する](sign-with-mfa.md)）
 
 {% hint style="danger" %}
-N Wallet を使う人全員が MFA を設定する前に手順5を行うと、MFA を設定していない人は署名できなくなります。
+N Wallet を使う人全員が MFA を設定する前に手順5を行うと、MFA を設定していない人は署名できなくなります。モバイルアプリで同じ IAM ユーザーのアクセスキーを使っている場合も、手順5を行うとモバイルアプリでは署名できなくなります。
 {% endhint %}
 
 {% hint style="info" %}
